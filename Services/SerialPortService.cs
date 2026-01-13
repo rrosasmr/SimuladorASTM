@@ -13,23 +13,41 @@ namespace SimuladorASTMv2.Services
         public bool IsConnected => _serialPort?.IsOpen ?? false;
 
         public List<string> GetAvailablePorts()
-        {
-            var ports = new List<string>();
+{
+    var ports = new List<string>();
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                ports.AddRange(SerialPort.GetPortNames());
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+    {
+        ports.AddRange(SerialPort.GetPortNames());
+    }
+    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+    {
+        // Buscar en /dev/
+        try
+        {
+            if (System.IO.Directory.Exists("/dev/"))
             {
                 var devPorts = System.IO.Directory.GetFiles("/dev/", "ttyS*")
-                    .Concat(System.IO.Directory.GetFiles("/dev/", "ttyUSB*"))
-                    .Concat(System.IO.Directory.GetFiles("/dev/", "pts*"));
+                    .Concat(System.IO.Directory.GetFiles("/dev/", "ttyUSB*"));
                 ports.AddRange(devPorts);
             }
-
-            return ports.Any() ? ports : new List<string> { "No hay puertos" };
         }
+        catch { }
+
+        // Buscar en /dev/pts/
+        try
+        {
+            if (System.IO.Directory.Exists("/dev/pts/"))
+            {
+                var ptsPorts = System.IO.Directory.GetFiles("/dev/pts/", "*");
+                ports.AddRange(ptsPorts);
+            }
+        }
+        catch { }
+    }
+
+    return ports.Any() ? ports : new List<string> { "No hay puertos" };
+}
 
         public void Connect(string portName)
         {
