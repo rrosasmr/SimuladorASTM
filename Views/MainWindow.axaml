@@ -1,20 +1,62 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:SimuladorASTMv2.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="500"
         x:Class="SimuladorASTMv2.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="SimuladorASTMv2">
+        Title="Simulador ASTM"
+        Width="700"
+        Height="500"
+        Background="#F5F7FA">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    <StackPanel Margin="20" Spacing="15">
+        <TextBlock Text="Simulador ASTM - Envío de Tramas" 
+                   FontSize="20" FontWeight="Bold" Foreground="#2C3E50"/>
+        
+        <!-- Conexión -->
+        <StackPanel Spacing="5">
+            <TextBlock Text="Puerto COM" FontSize="12" FontWeight="Bold" Foreground="#2C3E50"/>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <ComboBox ItemsSource="{Binding AvailablePorts}" 
+                          SelectedItem="{Binding SelectedPort}"
+                          Width="150" Padding="10"/>
+                
+                <Button Content="🔌 Conectar" 
+                        Command="{Binding ConnectCommand}"
+                        Padding="10" Background="#27AE60" Foreground="White" Width="120"/>
+                
+                <Button Content="❌ Desconectar" 
+                        Command="{Binding DisconnectCommand}"
+                        Padding="10" Background="#E74C3C" Foreground="White" Width="130"/>
+            </StackPanel>
+            <TextBlock Text="{Binding StatusMessage}" 
+                       FontSize="11" Foreground="#27AE60" FontWeight="Bold"/>
+        </StackPanel>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <!-- Separador -->
+        <Separator Height="1" Background="#BDC3C7"/>
 
+        <!-- Entrada de Trama -->
+        <StackPanel Spacing="5">
+            <TextBlock Text="Trama ASTM" FontSize="12" FontWeight="Bold" Foreground="#2C3E50"/>
+            <TextBox Text="{Binding AstmFrame}" 
+                     Padding="10" 
+                     Height="120"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     Background="White"
+                     Foreground="#2C3E50"
+                     Watermark="Ingresa la trama ASTM aquí..."/>
+        </StackPanel>
+
+        <!-- Botón Enviar -->
+        <Button Content="📤 Enviar Trama" 
+                Command="{Binding SendFrameCommand}"
+                Padding="15" 
+                Height="45"
+                FontSize="13"
+                FontWeight="Bold"
+                Background="#9B59B6" 
+                Foreground="White"/>
+    </StackPanel>
 </Window>
