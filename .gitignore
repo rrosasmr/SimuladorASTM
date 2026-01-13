@@ -1,0 +1,188 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+
+# Visual Studio Code settings
+*.code-workspace
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/extensions.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Nuget
+.nuget/
+*.nupkg
+*.snupkg
+nuget.config
+*.nuget.props
+*.nuget.targets
+
+# Visual Studio
+.vs/
+.vscode/
+
+# User-specific files (Visual Studio)
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxproj.VisualState.xml
+
+# Rider
+.idea/
+.idea_modules/
+*.sln.iml
+
+# Mac specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Rider specific
+*.sln.iml
+.idea/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Application logs
+*.log
+*.txt
+
+# IDE specific
+.editorconfig
+
+# OS generated files
+.gitkeep
+
+# Custom project files
+astm_debug.txt
+run_log.txt
+build_log.txt
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Package manager
+.npm
+.yarn
+
+# Coverage
+coverage/
+*.lcov
+
+# Dependencies
+node_modules/
+packages/
+
+# Publish
+PublishProfiles/
+*.PublishSettings
+*.azurePubxml
+
+# NuGet Package Manager
+.nupkg/
+
+# Cake
+.cake/
+tools/
+
+# Backup files
+*.bak
+*.backup
+
+# Compiled files
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# IDE output directories
+bin/
+obj/
+dist/
+build/
+
+# VS Code Extensions
+extensions.json
+
+# Git
+.git/
+.gitmodules
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+appveyor.yml
+
+# Miscellaneous
+.vscode-test/
+.vscode/extensions/
+.vscode/settings/
+.cache/
+.local/
+
+# Solution-specific
+.sln.DotSettings.user
